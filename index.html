@@ -1,0 +1,46 @@
+<!---- Paul Vaisseau ---->
+<!----  Openclassroom project ---->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>tchat en ligne</title>
+    </head>
+
+    <body>
+        <h1>Bienvenue</h1>
+
+        <p>
+            <input type="text" value="Mon_message" id="message">
+            <input type="button" value="Envoyer" id="envoiMessage" />
+        </p>
+
+        <div id="Content"></div>
+
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:8080');
+            var pseudo = prompt('Quel est votre pseudo ?');
+
+            socket.emit('petit_nouveau', pseudo);
+            socket.on('message', function(message) {
+
+            })
+
+            socket.on('chat', function(message) {
+                // alert('Le serveur a un message pour vous : ' + message);
+                $('#Content').append('<p>' + message + '</p>');
+            })
+
+            // Lorsqu'on clique sur le bouton, on envoie un "message" au serveur
+            $('#envoiMessage').click(function () {
+                var mess = $("#message").val();
+                console.log(mess);
+                socket.emit('chat', mess);
+            })
+        </script>
+    </body>
+</html>

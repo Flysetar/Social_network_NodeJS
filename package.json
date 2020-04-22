@@ -1,0 +1,10 @@
+{
+    "name": "Reseau",
+    "version": "0.1.0",
+    "description": "Reseau social avec socket.io (Openclassroom)",
+    "author": "Paul Vaisseau",
+    "dependencies": {
+        "socket.io": "~2",
+        "express": "~4.16"
+    }
+}
