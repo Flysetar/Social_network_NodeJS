@@ -5,6 +5,6 @@
     "author": "Paul Vaisseau",
     "dependencies": {
         "socket.io": "~2",
-        "express": "~4.16"
+        "express": "~4.17"
     }
 }
